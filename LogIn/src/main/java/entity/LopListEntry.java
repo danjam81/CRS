@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  *
- * @author q271820
+ * @author qxy1677
  */
 public class LopListEntry {
     

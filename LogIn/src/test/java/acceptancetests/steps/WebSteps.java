@@ -2,14 +2,16 @@ package acceptancetests.steps;
 
 import acceptancetests.base.DriverUtil;
 import acceptancetests.base.TestDataHelper;
-import acceptancetests.pages.DetailsPage;
-import acceptancetests.pages.EditPage;
+//import acceptancetests.pages.DetailsPage;
+//import acceptancetests.pages.EditPage;
 import acceptancetests.pages.OverviewPage;
 import cucumber.api.java8.En;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+
+import org.apache.http.auth.UsernamePasswordCredentials;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,12 +22,12 @@ public class WebSteps implements En {
     private static final Logger LOG = LoggerFactory.getLogger(WebSteps.class);
     
     OverviewPage overviewPage;
-    EditPage editPage;
-    DetailsPage detailsPage;
+   // EditPage editPage;
+   // DetailsPage detailsPage;
     
     public WebSteps() {
 
-
+/*
         Then("^I can verify the changed data \"([^\"]*)\" and \"([^\"]*)\" in the details view$", (String field, String value) -> {
             detailsPage = new DetailsPage(DriverUtil.getDriver());
             
@@ -50,8 +52,8 @@ public class WebSteps implements En {
             }
 
             detailsPage.clickBackToOverviewButton();
-        });
-        
+        }); */
+       /* 
         Then("^I can update the \"([^\"]*)\" with \"([^\"]*)\"$", (String field, String newValue) -> {
             editPage = new EditPage(DriverUtil.getDriver());
             
@@ -95,7 +97,7 @@ public class WebSteps implements En {
 
         Then("^the new entry \"([^\"]*)\" appears in list of entries$", (String subject) -> {
             Assert.assertTrue(overviewPage.checkIfEntryWithSubjectExists(subject));
-        });
+        });*/
 
         /**
          * OVERVIEW PAGE
@@ -114,20 +116,20 @@ public class WebSteps implements En {
         When("^I enter the value \"([^\"]*)\" into the \"([^\"]*)\" field$", (String value, String field) -> {
 
             switch(field) {
-                case "subject":
-                    overviewPage.enterSubject(value);
+                case "user1":
+                    overviewPage.findById(value);
                     break;
                 case "owner":
-                    overviewPage.enterOwner(value);
+                  //  overviewPage.enterOwner(value);
                     break;
                 case "date":
-                    overviewPage.enterDueDate(value);
+                    // overviewPage.enterDueDate(value);
                     break;
                 case "status":
-                    overviewPage.enterStatus(value);
+                    //overviewPage.enterStatus(value);
                     break;
                 case "note":
-                    overviewPage.enterNotes(value);
+                    //overviewPage.enterNotes(value);
                     break;
                 default:
                     throw new IllegalArgumentException("Invalid field!");
@@ -135,15 +137,15 @@ public class WebSteps implements En {
         });
 
         When("^I click on Add$", () -> {
-            overviewPage.clickAddEntryButton();
+           // overviewPage.clickAddEntryButton();
         });
         
         When("^I click on Save$", () -> {
-            new EditPage(DriverUtil.getDriver()).clickSaveEntryButton();
+           // new EditPage(DriverUtil.getDriver()).clickSaveEntryButton();
         });
         
         When("^I click on Back$", () -> {
-            new EditPage(DriverUtil.getDriver()).clickBackToOverviewButton();
+           // new EditPage(DriverUtil.getDriver()).clickBackToOverviewButton();
         });
 
         When("^I click  on \"([^\"]*)\" entry with subject \"([^\"]*)\"$", (String function, String subject) -> {
@@ -222,13 +224,13 @@ public class WebSteps implements En {
         });
 
         Then("^the notes \"([^\"]*)\" exists on the overview page$", (String notes) -> {
-            Assert.assertTrue(detailsPage.checkNotes(notes));
+            //Assert.assertTrue(detailsPage.checkNotes(notes));
         });
 
         /**
          * DETAIL PAGE
          */
-
+/*
         Then("^the field \"([^\"]*)\" exists with value \"([^\"]*)\" on the detail page$", (String field, String value) -> {
             detailsPage = new DetailsPage(DriverUtil.getDriver());
 
@@ -250,7 +252,7 @@ public class WebSteps implements En {
                     throw new IllegalArgumentException("Invalid field!" + field);
             }
         });
-
+*/
        
 
          Given("^The subject \"([^\"]*)\" exists in the overview$", (String subject) -> {
@@ -258,12 +260,12 @@ public class WebSteps implements En {
          });
 
         // -> K-I-S-S: See individual steps definitions
-         When("^I enter valid data on the overview page \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$", (String subject, String owner, String date, String status, String notes) -> {
-            overviewPage.enterSubject(subject);
-            overviewPage.enterOwner(owner);
-            overviewPage.enterDueDate(date);
-            overviewPage.enterStatus(status);
-            overviewPage.enterNotes(notes);
+         When("^I enter valid data on the overview page \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$", (String username, String owner, String date, String status, String notes) -> {
+            overviewPage.enterUsername(username);
+            //overviewPage.enterOwner(owner);
+            //overviewPage.enterDueDate(date);
+            //overviewPage.enterStatus(status);
+            //overviewPage.enterNotes(notes);
          });
 
     }

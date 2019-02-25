@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="1" total="1" passed="0">
+  <reporter-output>
+    <line>
+      <![CDATA[<div "result">I navigate to the WEB UI (PASSED : 11s)</div>]]>
+    </line>
+    <line>
+      <![CDATA[<div "result">I enter the value &quot;&lt;user1&gt;&quot; into the &quot;username&quot; field (FAILED : 0s)</div>]]>
+    </line>
+    <line>
+      <![CDATA[<div "result">I enter the value &quot;Al&quot; into the &quot;owner&quot; field (SKIPPED)</div>]]>
+    </line>
+    <line>
+      <![CDATA[<div "result">I enter the value &quot;03&#x2F;01&#x2F;2018&quot; into the &quot;date&quot; field (SKIPPED)</div>]]>
+    </line>
+    <line>
+      <![CDATA[<div "result">I enter the value &quot;ACTIVE&quot; into the &quot;status&quot; field (SKIPPED)</div>]]>
+    </line>
+    <line>
+      <![CDATA[<div "result">I enter the value &quot;aaaaaaaa&quot; into the &quot;note&quot; field (SKIPPED)</div>]]>
+    </line>
+    <line>
+      <![CDATA[<div "result">I click on Add (SKIPPED)</div>]]>
+    </line>
+    <line>
+      <![CDATA[<div "result">the subject &quot;&lt;subject&gt;&quot; exists on the overview page (SKIPPED)</div>]]>
+    </line>
+    <line>
+      <![CDATA[<div "result">the amount of total web entries was increased by 1 (SKIPPED)</div>]]>
+    </line>
+  </reporter-output>
+  <suite name="Surefire suite" duration-ms="15858" started-at="2019-02-25T16:37:16Z" finished-at="2019-02-25T16:37:32Z">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.runScenario(cucumber.api.testng.PickleEventWrapper, cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:acceptancetests.runner.TestRunner@6be46e8f]" name="runScenario" class="cucumber.api.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test name="Surefire test" duration-ms="15858" started-at="2019-02-25T16:37:16Z" finished-at="2019-02-25T16:37:32Z">
+      <class name="acceptancetests.runner.TestRunner">
+        <test-method status="PASS" signature="setUpClass()[pri:0, instance:acceptancetests.runner.TestRunner@6be46e8f]" name="setUpClass" is-config="true" duration-ms="461" started-at="2019-02-25T17:37:16Z" finished-at="2019-02-25T17:37:16Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method status="FAIL" signature="runScenario(cucumber.api.testng.PickleEventWrapper, cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:acceptancetests.runner.TestRunner@6be46e8f]" name="runScenario" duration-ms="15285" started-at="2019-02-25T17:37:16Z" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2019-02-25T17:37:32Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["add entries for CRS7.LogIn"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["lop list entries"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.IllegalArgumentException">
+            <message>
+              <![CDATA[Invalid field!]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.IllegalArgumentException: Invalid field!
+	at acceptancetests.steps.WebSteps.lambda$1(WebSteps.java:135)
+	at ✽.I enter the value "<user1>" into the "username" field(src/test/java/acceptancetests/features/devfeatures.feature:41)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.IllegalArgumentException -->
+          <reporter-output>
+            <line>
+              <![CDATA[<div "result">I navigate to the WEB UI (PASSED : 11s)</div>]]>
+            </line>
+            <line>
+              <![CDATA[<div "result">I enter the value &quot;&lt;user1&gt;&quot; into the &quot;username&quot; field (FAILED : 0s)</div>]]>
+            </line>
+            <line>
+              <![CDATA[<div "result">I enter the value &quot;Al&quot; into the &quot;owner&quot; field (SKIPPED)</div>]]>
+            </line>
+            <line>
+              <![CDATA[<div "result">I enter the value &quot;03&#x2F;01&#x2F;2018&quot; into the &quot;date&quot; field (SKIPPED)</div>]]>
+            </line>
+            <line>
+              <![CDATA[<div "result">I enter the value &quot;ACTIVE&quot; into the &quot;status&quot; field (SKIPPED)</div>]]>
+            </line>
+            <line>
+              <![CDATA[<div "result">I enter the value &quot;aaaaaaaa&quot; into the &quot;note&quot; field (SKIPPED)</div>]]>
+            </line>
+            <line>
+              <![CDATA[<div "result">I click on Add (SKIPPED)</div>]]>
+            </line>
+            <line>
+              <![CDATA[<div "result">the subject &quot;&lt;subject&gt;&quot; exists on the overview page (SKIPPED)</div>]]>
+            </line>
+            <line>
+              <![CDATA[<div "result">the amount of total web entries was increased by 1 (SKIPPED)</div>]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:acceptancetests.runner.TestRunner@6be46e8f]" name="tearDownClass" is-config="true" duration-ms="23" started-at="2019-02-25T17:37:32Z" finished-at="2019-02-25T17:37:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- acceptancetests.runner.TestRunner -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>

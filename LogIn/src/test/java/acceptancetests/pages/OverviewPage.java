@@ -22,29 +22,29 @@ public class OverviewPage extends BasePage{
     public OverviewPage(WebDriver driver) {
         super(driver);
     }
-    @FindBy(how = How.ID, using = "addBtn")
-    private WebElement btnAddEntry;
+    //@FindBy(how = How.ID, using = "addBtn")
+    //private WebElement btnAddEntry;
 
-    @FindBy(how = How.ID, using = "subject")
+    @FindBy(how = How.ID, using = "username")
     private WebElement subjectTextField;
 
-    @FindBy(how = How.ID, using = "owner")
-    private WebElement ownerTextField;
+   // @FindBy(how = How.ID, using = "owner")
+   // private WebElement ownerTextField;
 
-    @FindBy(how = How.ID, using = "duedate")
-    private WebElement duedateTextField;
+    //@FindBy(how = How.ID, using = "duedate")
+    //private WebElement duedateTextField;
 
-    @FindBy(how = How.ID, using = "status")
-    private WebElement statusOptionField;
+    //@FindBy(how = How.ID, using = "status")
+    //private WebElement statusOptionField;
     
-    @FindBy(how = How.ID, using = "notes")
-    private WebElement notesTextField;
+    //@FindBy(how = How.ID, using = "notes")
+    //private WebElement notesTextField;
     
-    public void enterSubject(String subject) {
+    public void enterUsername(String username) {
         subjectTextField.clear();
-        subjectTextField.sendKeys(subject);
+        subjectTextField.sendKeys(username);
     }
-    
+   /*
     public void enterOwner(String owner) {
         ownerTextField.clear();
         ownerTextField.sendKeys(owner);
@@ -65,13 +65,13 @@ public class OverviewPage extends BasePage{
         notesTextField.sendKeys(notes);
     }
     
-    
+   
     public void clickAddEntryButton() {
         if (DriverUtil.isChrome()) {
             waitForElementById(ExpectedConditions.visibilityOfElementLocated(By.id("addBtn")));
         }
         btnAddEntry.click();
-    }
+    } */
     
     public void clickUpdateEntryButtonByEntryId(String entryId) {
         if (DriverUtil.isChrome()) {
@@ -105,6 +105,14 @@ public class OverviewPage extends BasePage{
         clickViewEntryByEntryId(entryId);
     }
     
+    public void sendUsername(String username) {
+    	//waitForElementById(ExpectedConditions.visibilityOfElementLocated(By.id("username")));
+
+      WebElement usernameText= driver.findElement(By.xpath("//input[@id='username']"));
+      
+
+      usernameText.sendKeys(username);
+      }
     /**
      * This method retrieves all Item IDs in the overview page. Since all Table
      * cells like subject etc. contain an element ID with the combination of
@@ -115,7 +123,7 @@ public class OverviewPage extends BasePage{
     public List<String> getAllEntryIds () {
         
         List<String> entryIdList = new ArrayList<>();
-        waitForJSandJQueryToLoad();
+       // waitForJSandJQueryToLoad();
         
         List<WebElement> itemRows = driver.findElements(By.className("itemRow"));
         for (Iterator<WebElement> iterator = itemRows.iterator(); iterator.hasNext();) {
@@ -135,8 +143,10 @@ public class OverviewPage extends BasePage{
      *
      * @ return amount of entries
      * */
+    
+    
     public int getTotalAmountOfEntries () {
-        waitForJSandJQueryToLoad();
+        //waitForJSandJQueryToLoad();
         
         List<WebElement> itemRows = driver.findElements(By.className("itemRow"));
         
@@ -144,7 +154,7 @@ public class OverviewPage extends BasePage{
     }
     
     public boolean checkIfEntryWithSubjectExists(String subject) {
-        waitForJSandJQueryToLoad();
+       // waitForJSandJQueryToLoad();
         List<String> containedIDs = getAllEntryIds();
         
         //iterate over the subjects in order to find the right one
@@ -158,7 +168,7 @@ public class OverviewPage extends BasePage{
     }
 
     public boolean checkIfEntryWithOwnerExists(String owner) {
-        waitForJSandJQueryToLoad();
+        //waitForJSandJQueryToLoad();
         List<String> containedIDs = getAllEntryIds();
 
         //iterate over the subjects in order to find the right one
@@ -171,8 +181,9 @@ public class OverviewPage extends BasePage{
         return false;
     }
 
+    
     public boolean checkIfEntryWithDueDateExists(String duedate) {
-        waitForJSandJQueryToLoad();
+       // waitForJSandJQueryToLoad();
         List<String> containedIDs = getAllEntryIds();
 
         //iterate over the subjects in order to find the right one
@@ -186,7 +197,7 @@ public class OverviewPage extends BasePage{
     }
 
     public boolean checkIfEntryWithStatusExists(String status) {
-        waitForJSandJQueryToLoad();
+       // waitForJSandJQueryToLoad();
         List<String> containedIDs = getAllEntryIds();
 
         //iterate over the subjects in order to find the right one
@@ -200,7 +211,7 @@ public class OverviewPage extends BasePage{
     }
     
     public String getEntryIdBySubject(String subject) {
-        waitForJSandJQueryToLoad();
+       // waitForJSandJQueryToLoad();
         List<String> containedIDs = getAllEntryIds();
         
         //iterate over the subjects in order to find the right one
@@ -212,5 +223,5 @@ public class OverviewPage extends BasePage{
         
         return null;
     }
-    
+   
 }

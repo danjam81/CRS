@@ -29,7 +29,7 @@ public final class DriverUtil {
     private static String seleniumBoxUrl;
     private static String seleniumBoxToken;
     private static String targetWebUIUrl;
-    private static String targetRestApiUrl;
+    //private static String targetRestApiUrl;
     
     
     private static String browser = "chrome";
@@ -51,7 +51,7 @@ public final class DriverUtil {
         targetWebUIUrl = System.getProperty("testautomation.targetWebUIUrl");
 
         // initialize the REST API Url
-        targetRestApiUrl = System.getProperty("testautomation.targetRestApiUrl");
+        //targetRestApiUrl = System.getProperty("testautomation.targetRestApiUrl");
         
         
         // initialize which browser to use
@@ -82,13 +82,13 @@ public final class DriverUtil {
            
         return targetWebUIUrl;
     }
-    public static String getTargetRestUrl() {
-        if(targetRestApiUrl == null || targetRestApiUrl.isEmpty()) {
-            LOG.error("The REST API url of the target test application was not specified or is empty in " + confFile);
-            System.exit(0);
-        }
-        return targetRestApiUrl;
-    }
+   // public static String getTargetRestUrl() {
+     //   if(targetRestApiUrl == null || targetRestApiUrl.isEmpty()) {
+       //     LOG.error("The REST API url of the target test application was not specified or is empty in " + confFile);
+         //   System.exit(0);
+        //}
+        //return targetRestApiUrl;
+    //}
     
     private static String getSeleniumBoxToken() {
         if(seleniumBoxToken == null || seleniumBoxToken.isEmpty()) {

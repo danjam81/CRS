@@ -1,3 +1,4 @@
+
 package acceptancetests.pages;
 
 import org.openqa.selenium.By;
@@ -14,8 +15,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  * footers etc.), used by multiple pages of the target application, can be 
  * defined here.
  * 
- * @author q271820
+ * @author qxy1677
  */
+
 public class BasePage {
     protected final WebDriver driver;
 
@@ -23,7 +25,7 @@ public class BasePage {
         this.driver=driver;
         PageFactory.initElements(driver, this);
     }
-
+    
     public void waitForElementById(ExpectedCondition<WebElement> buttonEditProjectInformation) {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(buttonEditProjectInformation);
@@ -49,33 +51,33 @@ public class BasePage {
         return driver.findElements(By.className(xpath)).get(0);
     }
     
-    public boolean waitForJSandJQueryToLoad() {
+ //   public boolean waitForJSandJQueryToLoad() {
 
-    WebDriverWait wait = new WebDriverWait(driver, 30);
+ //   WebDriverWait wait = new WebDriverWait(driver, 30);
 
     // wait for jQuery to load
-    ExpectedCondition<Boolean> jQueryLoad = new ExpectedCondition<Boolean>() {
-      @Override
-      public Boolean apply(WebDriver driverToApply) {
-        try {
-          return ((Long)((JavascriptExecutor)driver).executeScript("return jQuery.active") == 0);
-        }
-        catch (Exception e) {
-          // no jQuery present
-          return true;
-        }
-      }
-    };
+  //  ExpectedCondition<Boolean> jQueryLoad = new ExpectedCondition<Boolean>() {
+  //    @Override
+   //   public Boolean apply(WebDriver driverToApply) {
+     //   try {
+       //   return ((Long)((JavascriptExecutor)driver).executeScript("return jQuery.active") == 0);
+     //   }
+       // catch (Exception e) {
+        //  // no jQuery present
+         // return true;
+        //}
+     // }
+  //  };
 
     // wait for Javascript to load
-    ExpectedCondition<Boolean> jsLoad = new ExpectedCondition<Boolean>() {
-      @Override
-      public Boolean apply(WebDriver driverToApply) {
-        return ((JavascriptExecutor)driver).executeScript("return document.readyState")
-        .toString().equals("complete");
-      }
-    };
+ //   ExpectedCondition<Boolean> jsLoad = new ExpectedCondition<Boolean>() {
+  ///    @Override
+   //   public Boolean apply(WebDriver driverToApply) {
+    //    return ((JavascriptExecutor)driver).executeScript("return document.readyState")
+     //   .toString().equals("complete");
+    //  }
+   // };
 
-  return wait.until(jQueryLoad) && wait.until(jsLoad);
+ // return wait.until(jQueryLoad) && wait.until(jsLoad);
 }
-}
+//}
